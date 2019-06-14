@@ -41,7 +41,12 @@ exports.createPages = ({ actions, graphql }) => {
             },
           }
         )
-        console.log(node.name, contributors[0].author.login)
+        console.log(
+          node.name,
+          contributors[0].author
+            ? contributors[0].author.login
+            : "edarda naikka"
+        )
         createPage({
           path: `/${data.id}/`,
           component: postTemplate,
