@@ -41,6 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
             },
           }
         )
+        console.log(node.name, contributors)
         createPage({
           path: `/${data.id}/`,
           component: postTemplate,
