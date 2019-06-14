@@ -31,16 +31,16 @@ exports.createPages = ({ actions, graphql }) => {
       }
       return res.data.allFile.edges.map(async ({ node }) => {
         const data = require(`${__dirname}/data/${node.name}`)
-        // const { data: contributors } = await axios(
-        //   `https://api.github.com/repos/devsonket/devsonket.github.io/commits?path=data/${
-        //     node.name
-        //   }.json`,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
-        //     },
-        //   }
-        // )
+        const { data: contributors } = await axios(
+          `https://api.github.com/repos/devsonket/devsonket.github.io/commits?path=data/${
+            node.name
+          }.json`,
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+            },
+          }
+        )
         createPage({
           path: `/${data.id}/`,
           component: postTemplate,
