@@ -1,6 +1,8 @@
 const path = require("path")
 const axios = require("axios")
 
+console.log(process.env)
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const postTemplate = path.resolve("src/templates/cheatsheet.js")
